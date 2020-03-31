@@ -1,0 +1,150 @@
+# 领域，一段对话属于什么领域
+domain:
+  - 打招呼
+  - 提问
+  - 闲聊
+  - 再见
+  - 问天气
+  - poi推荐
+  - 美食推荐
+  - 新闻
+  - 音乐
+  - 明星
+  - 电影
+
+(用户主动问)  单轮对话，领域分类
+问答 2731
+问日期 1058
+问时间 895
+
+问天气 1923
+天气信息推送 895
+
+
+（任务型对话） 多轮对话，需要标记意图，行为
+播放音乐 3379
+音乐点播 720
+音乐推荐 2470
+新闻点播 533
+新闻推荐 1283
+电影推荐 3828
+
+美食推荐 1013
+兴趣点推荐 911
+
+
+(闲聊)
+再见 12209
+寒暄 4349
+关于明星的聊天 3476
+
+
+(bot 主动询问)
+问User爱好 1894
+问User姓名 1164
+问User性别 1164
+问User年龄 1164
+
+
+
+# 用户意图, 用户每句话中表现出来的意图
+intents:
+  - hello
+  - googbye
+  - ask_question
+  - agree_with_you
+  - not_agree_with_you
+  -
+
+# 行为
+actions:
+- utter_ask_like_film   # 询问喜欢电影
+- utter_ask_like_star   # 询问喜欢明星
+- action_chat_star      # 闲聊
+- action_recommend_film #
+- action_recommend_poi  # 推荐poi
+- utter_goodbye         # 再见
+
+
+# 用户输入中应该识别的实体类型
+entities:
+- star_name
+- file_name
+
+
+# 插槽，chatbot 在聊天中记忆部分
+slots:
+  user_love_type:
+    type:
+
+  answer_id:
+    type: text
+  is_help:
+    type: categorical
+    values:
+    - yes
+    - no
+  is_select:
+    type: categorical
+    values:
+    - yes
+    - no
+  scence_type:
+    type: categorical
+    initial_value: '0'
+    values:
+      - '0'
+      - '1'
+  user_name:
+    type: text
+    initial_value: 同学
+
+
+# 回复模板
+templates:
+  utter_again_confirm:
+  - text: 我不太理解你的话，你可以尝试说是或者不是
+  utter_ask_course_state:
+  - text: 看过了{teacher_name}老师的{course_name},觉的能掌握吗?
+  utter_confirm_answer:
+  - text: 这些可以解决你的疑问吗?
+  utter_deny:
+  - text: sorry, 我不太理解你的话, 你是要****?
+  utter_goodbye:
+  - text: 再见!
+  utter_hello:
+  - text: 你好, {user_name}
+  - text: hello, {user_name}
+  - text: hi, {user_name}
+  utter_ask_question:
+  - text: 学习遇到了什么问题？我可以帮你哦
+  utter_invite_answer_state:
+  - text: 看来你对***有点疑惑，把你的疑惑点告诉我吧？
+  utter_invite_test:
+  - text: 我这有几道测试题，想要测试一下吗?
+  utter_un_intent:
+  - text: 抱歉，不太理解你的话，你可以问我一些其他问题
+  utter_recording:
+  - text: 还有吗?
+  utter_great:
+    - text: test
+  utter_jili:
+  - text: todo
+  utter_why_ganen:
+  - text: 为什么要进行练习呢？
+  utter_tishi_ganen:
+  - text: 我来引导一下你
+  utter_quit_ganen:
+  - text: 那就以后再进行吧
+  utter_greet:
+    - text: 你好
+  utter_jili_ganen:
+    - text: 做的好
+  utter_happy:
+    - text: good
+  utter_did_that_help:
+    - text: 需要帮助吗？
+  utter_cheer_up:
+    - text: ???
+
+
